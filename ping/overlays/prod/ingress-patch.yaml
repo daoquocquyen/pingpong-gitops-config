@@ -5,3 +5,12 @@ metadata:
 spec:
   rules:
     - host: ping.prod.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ping
+                port:
+                  number: 8080
