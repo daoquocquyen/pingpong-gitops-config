@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: pingpong
+  namespace: argocd
+spec:
+  description: Project for ping/pong across dev, qa, preprod, prod
+  sourceRepos:
+    - https://github.com/daoquocquyen/pingpong-config.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  orphanedResources:
+    warn: true

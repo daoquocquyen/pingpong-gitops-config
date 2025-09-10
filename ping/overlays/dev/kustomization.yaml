@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: pingpong-dev
+resources:
+  - ../../base
+  - namespace.yaml
+images:
+  - name: daoquocquyen/ping
+    newTag: 1.0.0-ba7ee88
+patches:
+  - path: deployment-patch.yaml
+  - path: ingress-patch.yaml
