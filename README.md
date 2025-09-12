@@ -1,4 +1,4 @@
-# pingpong-config
+# pingpong-gitops-config
 
 Declarative Kubernetes manifests for the **ping/pong** demo, using Kustomize.
 This repo is designed for GitOps tools (e.g., Argo CD or Flux) and follows a per-service base + environment overlays layout.

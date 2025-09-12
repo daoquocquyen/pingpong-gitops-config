@@ -21,10 +21,10 @@ spec:
     spec:
       project: pingpong
       sources:
-        - repoURL: https://github.com/daoquocquyen/pingpong-config.git
+        - repoURL: https://github.com/daoquocquyen/pingpong-gitops-config.git
           targetRevision: main
           path: ping/overlays/{{env}}
-        - repoURL: https://github.com/daoquocquyen/pingpong-config.git
+        - repoURL: https://github.com/daoquocquyen/pingpong-gitops-config.git
           targetRevision: main
           path: pong/overlays/{{env}}
       destination:

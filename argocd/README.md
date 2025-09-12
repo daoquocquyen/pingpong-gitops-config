@@ -1,4 +1,4 @@
-# Argo CD ApplicationSet for pingpong-config
+# Argo CD ApplicationSet for pingpong-gitops-config
 
 This directory contains an `AppProject` and a single `ApplicationSet` that generates Applications
 for each combination of service (`ping`, `pong`) and environment (`dev`, `qa`, `preprod`, `prod`).
@@ -8,7 +8,7 @@ for each combination of service (`ping`, `pong`) and environment (`dev`, `qa`, `
 - The ApplicationSet controller is installed (usually part of standard Argo CD Helm charts or install manifests).
 
 ## Repo URL
-Configured to deploy from: `https://github.com/daoquocquyen/pingpong-config.git`
+Configured to deploy from: `https://github.com/daoquocquyen/pingpong-gitops-config.git`
 
 ## What gets generated
 The ApplicationSet creates Applications named `<service>-<env>` such as `ping-dev`, `pong-prod`.

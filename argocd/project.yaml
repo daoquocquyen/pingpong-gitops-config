@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Project for ping/pong across dev, qa, preprod, prod
   sourceRepos:
-    - https://github.com/daoquocquyen/pingpong-config.git
+    - https://github.com/daoquocquyen/pingpong-gitops-config.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: '*'
