@@ -9,7 +9,6 @@ spec:
         elements:
           - env: dev
           - env: qa
-          - env: preprod
           - env: prod
   template:
     metadata:
