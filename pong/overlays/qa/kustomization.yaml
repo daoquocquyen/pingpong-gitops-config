@@ -4,6 +4,7 @@ namespace: pingpong-qa
 resources:
   - ../../base
   - namespace.yaml
+  - configmap.yaml
 images:
   - name: daoquocquyen/pong
     newTag: 1.0.0-340c758

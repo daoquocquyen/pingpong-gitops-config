@@ -18,6 +18,9 @@ spec:
         - name: pong
           image: daoquocquyen/pong:latest
           imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: pong-config
           ports:
             - containerPort: 8080
           readinessProbe:
