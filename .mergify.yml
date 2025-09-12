@@ -1,0 +1,28 @@
+# .mergify.yml
+pull_request_rules:
+  - name: Auto-merge PRs that only touch ping/pong dev overlays
+    conditions:
+      # target branch
+      - base=main
+
+      # ensure at least one changed file is in the allowed prefixes
+      - or:
+          - files~=^ping/overlays/dev/
+          - files~=^pong/overlays/dev/
+
+      # ensure there are NO changed files outside those prefixes
+      # Explanation: the regex ^(?!ping/overlays/dev/|pong/overlays/dev/).*
+      # matches any path that does NOT start with either allowed prefix.
+      # The leading '-' means "no file should match this".
+      - -files~=^(?!ping/overlays/dev/|pong/overlays/dev/).*
+
+      # (optional but recommended) require your CI checks / reviews here
+      # Repeat these lines for each required status/check name you use.
+      # Use the exact check names as they appear on your PRs.
+      # - check-success=<your-ci-check-name>
+      # - "#approved-reviews-by>=1"
+
+    actions:
+      merge:
+        method: squash        # or "merge" / "rebase" if you prefer
+        strict: smart+fast    # obeys merge queue / protections when enabled
