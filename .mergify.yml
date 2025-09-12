@@ -25,4 +25,3 @@ pull_request_rules:
     actions:
       merge:
         method: squash        # or "merge" / "rebase" if you prefer
-        strict: smart+fast    # obeys merge queue / protections when enabled
