@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pingpong-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - env: dev
+          - env: qa
+          - env: prod
+  template:
+    metadata:
+      name: "pingpong-{{env}}"
+      labels:
+        app.kubernetes.io/part-of: pingpong
+        app.kubernetes.io/managed-by: argocd-appset
+        env: "{{env}}"
+    spec:
+      project: pingpong
+      sources:
+        - repoURL: https://github.com/daoquocquyen/pingpong-gitops-config.git
+          targetRevision: main
+          path: ping/overlays/{{env}}
+        - repoURL: https://github.com/daoquocquyen/pingpong-gitops-config.git
+          targetRevision: main
+          path: pong/overlays/{{env}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "pingpong-{{env}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
