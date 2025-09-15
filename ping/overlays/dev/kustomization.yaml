@@ -6,7 +6,7 @@ resources:
   - namespace.yaml
 images:
   - name: daoquocquyen/ping
-    newTag: 0.0.1-cca84c4
+    newTag: 0.0.1-883e46a
 patches:
   - path: deployment-patch.yaml
   - path: ingress-patch.yaml
