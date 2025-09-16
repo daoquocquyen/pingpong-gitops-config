@@ -7,6 +7,6 @@ resources:
   - configmap.yaml
 images:
   - name: daoquocquyen/pong
-    newTag: 0.0.2
+    newTag: 0.0.3-c9243a6
 patches:
   - path: deployment-patch.yaml
